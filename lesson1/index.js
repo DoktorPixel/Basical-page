@@ -156,7 +156,3 @@ else {
     ("Hello, Darth Vader");
 }
  */
-
-let base = prompt('давай число');
-base = Namber(base);
-console.log(base);
