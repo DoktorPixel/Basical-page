@@ -244,6 +244,91 @@ if (
 // }
 // console.log(message);
 
+/*
+// эти все способы выводят в консоль числа от 1 до 5
+let x = 1;
+while (x < 5) {
+  console.log(x);
+  x = x + 1;
+}
+//
+let x = 1;
+do {
+  console.log(x);
+  x = x + 1;
+} while (x < 5);
+//
+for (let i = 1; i <= 5; i += 1) {
+    console.log(i);
+  }
+//
+let i=1
+for (i = 1; i < 5; i += 1) {
+    console.log(i);
+  }
+  console.log(i)
+*/
+
+/*
+//Задача №3. Переписать на while
+for (let num = 0; num < 3; num++) {
+  console.log(`число: ${num}`);
+}
+//ответ:
+let num = 0;
+while (num < 3) {
+  console.log(`число: ${num}`);
+  num++;
+}
+*/
+
+/*
+//Задача №4. Прекратить работу цикла №1 когда size равна 1
+//цикл №1
+for (let num = 0; num < 2; num++) {
+  //цикл №2
+  for (let size = 0; size < 3; size++) {
+    console.log(size);
+  }
+}
+//ответ:
+let num;
+let size;
+//цикл №1
+for (let num = 0; num < 2; num++) {
+  //цикл №2
+  for (let size = 0; size < 3; size++) {
+    console.log(size);
+    if (size === 1) {
+      break; // прерывание цикла №2
+    }
+  }
+  if (size === 1) {
+    break; // прерывание цикла №1
+  }
+}
+*/
+
+/*
+const users = ['user1', 'user2', 'user3', 'user4', 'admin'];
+for (let i = 0; i < users.length; i++) {
+  if (users[i] === 'admin') {
+    console.log('Admin found!');
+    break;
+  }
+  console.log('Checking user:', users[i]);
+}
+*/
+
+/*
+const employees = 10; // количество работников
+let totalSalary = 0; // общая сумма зарплат
+for (let i = 0; i < employees; i++) {
+  const salary = Math.floor(Math.random() * (5000 - 500 + 1)) + 500; // генерируем случайную зарплату для каждого работника
+  totalSalary += salary; // добавляем зарплату работника к общей сумме зарплат
+}
+console.log(`Общая сумма зарплат работников: ${totalSalary}`);
+*/
 
 
 const clients = ["Mango", "Ajax", "Poly"];
