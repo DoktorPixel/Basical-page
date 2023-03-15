@@ -1,29 +1,4 @@
 
-const clients = ["Mango", "Ajax", "Poly"];
-
-for (const client of clients) {
-  console.log(client);
-}
-
-const string = "javascript";
-
-for (const character of string) {
-  console.log(character);
-}
-
-for (let index = 0; index < array.length; index++) {
-  const element = array[index];
-  if (condition) {
-  }
-}
-
-for (let i = 0; i < numbers.length; i += 1) {
-  if (numbers[i] < threshold) {
-    continue;
-  }
-
-  console.log(`Число больше чем ${threshold}: ${numbers[i]}`); // 18, 29, 34
-
 
 
   
@@ -35,7 +10,6 @@ for (let i = 0; i < numbers.length; i += 1) {
     }
     return numbers.filter((item) => item > value);
   }
-}
 
 
 

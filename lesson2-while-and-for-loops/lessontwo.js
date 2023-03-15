@@ -320,7 +320,7 @@ for (let i = 0; i < users.length; i++) {
 }
 */
 
-/*
+
 const employees = 10; // количество работников
 let totalSalary = 0; // общая сумма зарплат
 for (let i = 0; i < employees; i++) {
@@ -328,40 +328,5 @@ for (let i = 0; i < employees; i++) {
   totalSalary += salary; // добавляем зарплату работника к общей сумме зарплат
 }
 console.log(`Общая сумма зарплат работников: ${totalSalary}`);
-*/
 
 
-const clients = ["Mango", "Ajax", "Poly"];
-
-for (const client of clients) {
-  console.log(client);
-}
-
-const string = "javascript";
-
-for (const character of string) {
-  console.log(character);
-}
-
-for (let index = 0; index < array.length; index++) {
-  const element = array[index];
-  if (condition) {
-  }
-}
-
-for (let i = 0; i < numbers.length; i += 1) {
-  if (numbers[i] < threshold) {
-    continue;
-  }
-
-  console.log(`Число больше чем ${threshold}: ${numbers[i]}`); // 18, 29, 34
-
-  function filterArray(numbers, value) {
-    const a = [];
-
-    for (let index = 0; index < 10; index++) {
-      a.push("");
-    }
-    return numbers.filter((item) => item > value);
-  }
-}
