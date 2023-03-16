@@ -271,6 +271,25 @@ const index = cards.indexOf(cardToRemove);
 console.log(index);
 cards.splice(index, 1);
 console.table(cards);
+
 // Добавление (по индексу)
 const cardToInsert = "Карточка-6";
-// const index = 3;
+const indexNew = 3;
+cards.splice(indexNew, 0, cardToInsert);
+console.table(cards);
+
+// обновление (по индексу)
+const cardToUpdate = "Карточка-7";
+cards.splice(1, 1, cardToUpdate); //меняем карточку-2 на карточку-7
+console.table(cards);
+
+// Является ли слово ПАЛИНДРОМОМ
+const string = "TENET";
+console.log(string);
+const reversString = string.split("").reverse().join("");
+console.log(reversString);
+if (string === reversString) {
+  console.log("да это палиндром");
+} else {
+  console.log("нет это не палиндром");
+}

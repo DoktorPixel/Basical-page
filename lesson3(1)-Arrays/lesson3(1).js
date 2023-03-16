@@ -46,12 +46,12 @@ for (let i = 0; i < fruits.length; i += 1) {
 
   console.log(`${i + 1} - ${fruit}`);
 }
-// // // //
+// // // // same abowe
 let index = 0;
 for (const fruit of fruits) {
   console.log(`${(index += 1)} - ${fruit}`);
 }
-
+// // //same abowe
 for (const fruit of fruits) {
   console.log(`${fruits.indexOf(fruit) + 1} - ${fruit}`);
 }
