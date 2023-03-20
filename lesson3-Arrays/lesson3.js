@@ -184,6 +184,7 @@ for (const friend of friends) {
 string = string.slice(0, string.length - 1);
 console.log(string);
 // Должно получиться 'Mango,Poly,Kiwi,Ajax'
+
 // // массив преобразовать в строку ПРОСТО:
 const friends = ["Mango", "Poly", "Kiwi", "Ajax"];
 const string = friends.join(",");
