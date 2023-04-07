@@ -523,7 +523,7 @@ function addOverNum(minNumber, ...args) {
   // Change code above this line
 }
 
-// // // 32. Функция findMatches() принимает произвольное количество аргументов. Первым аргументом всегда будет массив чисел, а остальные аргументы будут просто числами. Дополни код функции так, чтобы она возвращала новый массив matches, в котором будут только те аргументы, начиная со второго, которые есть в массиве первого аргумента.
+// // // 33. Функция findMatches() принимает произвольное количество аргументов. Первым аргументом всегда будет массив чисел, а остальные аргументы будут просто числами. Дополни код функции так, чтобы она возвращала новый массив matches, в котором будут только те аргументы, начиная со второго, которые есть в массиве первого аргумента.
 // Change code below this line
 // function findMatches(array = [], ...args)
 function findMatches(array, ...args) {
@@ -536,3 +536,156 @@ function findMatches(array, ...args) {
   // Change code above this line
   return matches;
 }
+
+// // // Объекты могут хранить не только данные, но и функции для работы с этими данными - методы. Если значение свойства это функция, такое свойство называется методом объекта.
+
+// // // 34.Добавь объекту bookShelf ещё два метода, которые пока что будут возвращать просто строки по аналогии с getBooks() и addBook(bookName).
+
+const bookShelf = {
+  // Change code below this line
+  books: ['The last kingdom', 'The guardian of dreams'],
+  getBooks() {
+    return 'Returning all books';
+  },
+  addBook(bookName) {
+    return `Adding book ${bookName}`;
+  },
+  removeBook(bookName) {
+    return `Deleting book ${bookName}`;
+  },
+  updateBook(oldName, newName) {
+    return `Updating book ${oldName} to ${newName}`;
+  },
+  // Change code above this line
+};
+
+// // // Ключевое слово «this» в методах Значение this – это объект «перед точкой», который используется для вызова метода. Например:
+let user = {
+  name: 'John',
+  age: 30,
+  sayHi() {
+    // "this" - это "текущий объект".
+    alert(this.name);
+  },
+};
+user.sayHi(); // John
+
+//
+
+const bookShelf = {
+  books: ['Последнее королевство'],
+  getBooks() {
+    console.log(this);
+  },
+}; // Перед точкой стоит объект bookShelf,
+// поэтому при вызове метода, this будет хранить ссылку на него.
+bookShelf.getBooks(); // {books: ["Последнее королевство"], getBooks: f}
+
+//
+
+const bookShelf = {
+  books: ['Последнее королевство'],
+  getBooks() {
+    return this.books;
+  },
+  addBook(bookName) {
+    this.books.push(bookName);
+  },
+  removeBook(bookName) {
+    const bookIndex = this.books.indexOf(bookName);
+    this.books.splice(bookIndex, 1);
+  },
+};
+console.log(bookShelf.getBooks()); // ["Последнее королевство"]
+bookShelf.addBook('Мгла');
+bookShelf.addBook('Страж снов');
+console.log(bookShelf.getBooks()); // ["Последнее королевство", "Мгла", "Страж снов"]
+bookShelf.removeBook('Мгла');
+console.log(bookShelf.getBooks()); // ["Последнее королевство", "Страж снов"]
+
+// // // 35. Дополни метод updateBook(oldName, newName) так, чтобы он изменял название книги с oldName на newName в свойстве books.
+const bookShelf = {
+  books: ['The last kingdom', 'Haze', 'The guardian of dreams'],
+  updateBook(oldName, newName) {
+    const bookIndex = this.books.indexOf(oldName);
+    this.books.splice(bookIndex, 1, newName);
+    // indexOf() для того, чтобы найти нужный элемент массива, и splice() для того чтобы заменить этот элемент
+  },
+};
+
+// // // 36. "ничего интересного"
+// // // 37. "ничего интересного"
+
+// // // 38. Дополни метод addPotion(potionName) так, чтобы он добавлял зелье potionName в конец массива зелий в свойстве potions.
+const atTheOldToad = {
+  potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+  addPotion(potionName) {
+    // Change code below this line
+    this.potions.push(potionName);
+    // Change code above this line
+  },
+};
+
+// // // 39. Дополни метод removePotion(potionName) так, чтобы он удалял зелье potionName из массива зелий в свойстве potions.
+const atTheOldToad = {
+  potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+  removePotion(potionName) {
+    // Change code below this line
+    const potionIndex = this.potions.indexOf(potionName);
+    this.potions.splice(potionIndex, 1);
+
+    // Change code above this line
+  },
+};
+
+// // // 40.Дополни метод updatePotionName(oldName, newName) так, чтобы он обновлял название зелья с oldName на newName, в массиве зелий в свойстве potions.
+
+const atTheOldToad = {
+  potions: ['Speed potion', 'Dragon breath', 'Stone skin'],
+  updatePotionName(oldName, newName) {
+    // Change code below this line
+    const potionIndex = this.potions.indexOf(oldName);
+    this.potions.splice(potionIndex, 1, newName);
+    // Change code above this line
+  },
+};
+
+// // // 41. Заказчица хочет чтобы каждое зелье было представлено не только именем, но и ценой, а в будущем может быть и другими характеристиками. Поэтому теперь в свойстве potions будет храниться массив объектов со следующими свойствами.  Выполни рефакторинг методов объекта atTheOldToad так, чтобы они работали не с массивом строк, а с массивом объектов.
+
+const atTheOldToad = {
+  potions: [
+    { name: 'Speed potion', price: 460 },
+    { name: 'Dragon breath', price: 780 },
+    { name: 'Stone skin', price: 520 },
+  ],
+  // Change code below this line
+  getPotions() {
+    return this.potions;
+  },
+  addPotion(newPotion) {
+    if (this.potions.includes(newPotion)) {
+      return `Error! Potion ${newPotion} is already in your inventory!`;
+    }
+
+    this.potions.push(newPotion);
+  },
+  removePotion(potionName) {
+    const potionIndex = this.potions.indexOf(potionName);
+
+    if (potionIndex === -1) {
+      return `Potion ${potionName} is not in inventory!`;
+    }
+
+    this.potions.splice(potionIndex, 1);
+  },
+  updatePotionName(oldName, newName) {
+    const potionIndex = this.potions.indexOf(oldName);
+
+    if (potionIndex === -1) {
+      return `Potion ${oldName} is not in inventory!`;
+    }
+
+    this.potions.splice(potionIndex, 1, newName);
+  },
+  // Change code above this line
+};
