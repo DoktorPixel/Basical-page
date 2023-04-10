@@ -650,8 +650,9 @@ const atTheOldToad = {
   },
 };
 
-// // // 41. Заказчица хочет чтобы каждое зелье было представлено не только именем, но и ценой, а в будущем может быть и другими характеристиками. Поэтому теперь в свойстве potions будет храниться массив объектов со следующими свойствами.  Выполни рефакторинг методов объекта atTheOldToad так, чтобы они работали не с массивом строк, а с массивом объектов.
-
+// // // 41. Заказчица хочет чтобы каждое зелье было представлено не только именем, но и ценой, а в будущем может быть и другими характеристиками. Поэтому теперь в свойстве potions будет храниться массив объектов со следующими свойствами.
+// {  name: "Dragon breath",
+//    price: 700  }
 const atTheOldToad = {
   potions: [
     { name: 'Speed potion', price: 460 },
@@ -666,7 +667,6 @@ const atTheOldToad = {
     if (this.potions.includes(newPotion)) {
       return `Error! Potion ${newPotion} is already in your inventory!`;
     }
-
     this.potions.push(newPotion);
   },
   removePotion(potionName) {
@@ -675,7 +675,6 @@ const atTheOldToad = {
     if (potionIndex === -1) {
       return `Potion ${potionName} is not in inventory!`;
     }
-
     this.potions.splice(potionIndex, 1);
   },
   updatePotionName(oldName, newName) {
@@ -684,8 +683,37 @@ const atTheOldToad = {
     if (potionIndex === -1) {
       return `Potion ${oldName} is not in inventory!`;
     }
-
     this.potions.splice(potionIndex, 1, newName);
   },
   // Change code above this line
+};
+//  Выполни рефакторинг методов объекта atTheOldToad так, чтобы они работали не с массивом строк, а с массивом объектов.
+const atTheOldToad = {
+  potions: [],
+
+  getPotions() {
+    return this.potions;
+  },
+  addPotion(newPotion) {
+    const found = this.potions.find(potion => potion.name === newPotion.name);
+    if (found) {
+      return `Error! Potion ${newPotion.name} is already in your inventory!`;
+    }
+
+    this.potions.push(newPotion);
+  },
+  removePotion(potionName) {
+    this.potions = this.potions.filter((potion, index, array) => potion.name !== potionName);
+  },
+  updatePotionName(oldName, newName) {
+    this.potions = this.potions.map(potion => {
+      if (potion.name === oldName) {
+        return {
+          ...potion,
+          name: newName,
+        };
+      }
+      return potion;
+    });
+  },
 };
